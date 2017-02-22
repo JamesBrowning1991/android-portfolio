@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.james.portfolio.MainActivity">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.james.portfolio.MainFragment"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/fragment2"
+        tools:layout="@layout/main_fragment" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/side_menu_showhide_button"
+        android:background="@drawable/button_background"
+        android:stateListAnimator="@null"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="-100dp" />
+
+    <fragment
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:name="com.example.james.portfolio.SideMenuFragment"
+        android:layout_alignParentTop="true"
+        android:id="@+id/fragment"
+        tools:layout="@layout/side_menu"
+        android:layout_marginLeft="-100dp" />
+
+</RelativeLayout>
