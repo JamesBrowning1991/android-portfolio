@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements SideMenuFragment.
     int sideMenuWidth;
     int sideMenuTabWidth;
     int sideMenuTabTopMargin;
-    boolean sideMenuIsDisplayed = true;
     RelativeLayout.LayoutParams sideMenuTabPositionRules;
 
     @Override
@@ -101,12 +100,10 @@ public class MainActivity extends AppCompatActivity implements SideMenuFragment.
             sideMenuPositionRules.leftMargin = 0;
             sideMenuTabPositionRules.leftMargin = 0 - sideMenuTabWidth;
             sideMenuTabButton.setLayoutParams(sideMenuTabPositionRules);
-            sideMenuIsDisplayed = true;
         } else {
             sideMenuPositionRules.leftMargin = 0 - sideMenuWidth;
             sideMenuTabPositionRules.leftMargin = 0;
             new Thread(waitThenUpdateTabLocation).start();
-            sideMenuIsDisplayed = false;
         }
 
         sideMenuFragment.setLayoutParams(sideMenuPositionRules);

@@ -23,7 +23,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:id="@+id/side_menu_showhide_button"
-        android:background="@drawable/button_background"
+        android:background="@drawable/sidemenu_tab_background"
         android:stateListAnimator="@null"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
