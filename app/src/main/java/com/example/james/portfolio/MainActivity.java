@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.transition.ChangeBounds;
 import android.transition.Transition;
 import android.transition.TransitionManager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -49,15 +50,17 @@ public class MainActivity extends AppCompatActivity implements SideMenuFragment.
             }
         });
 
-        mainFragment.setOnClickListener(
-                new RelativeLayout.OnClickListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                    @Override
-                    public void onClick(View v) {
-                        moveSideMenu(false);
-                    }
-                }
-        );
+        mainFragment.setOnTouchListener(new View.OnTouchListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    moveSideMenu(false);
+                    return true;
+                } else
+                    return false;
+            }
+        });
 
         sideMenuTabButton.setOnClickListener(
                 new RelativeLayout.OnClickListener() {
