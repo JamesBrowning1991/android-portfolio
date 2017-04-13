@@ -97,10 +97,12 @@ public class MainActivity extends AppCompatActivity implements SideMenuFragment.
         sideMenuTabPositionRules.topMargin = sideMenuTabTopMargin;
 
         if (show) {
+            sideMenuTabButton.setVisibility(View.INVISIBLE);
             sideMenuPositionRules.leftMargin = 0;
             sideMenuTabPositionRules.leftMargin = 0 - sideMenuTabWidth;
             sideMenuTabButton.setLayoutParams(sideMenuTabPositionRules);
-        } else {
+        } else if (sideMenuTabButton.getRight() < 1){
+            sideMenuTabButton.setVisibility(View.VISIBLE);
             sideMenuPositionRules.leftMargin = 0 - sideMenuWidth;
             sideMenuTabPositionRules.leftMargin = 0;
             new Thread(waitThenUpdateTabLocation).start();
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements SideMenuFragment.
             synchronized (this){
                 try{
                     wait(1000);
-                }catch(Exception e){}
+                }catch(InterruptedException e){}
             }
             handler.sendEmptyMessage(0);
         }
